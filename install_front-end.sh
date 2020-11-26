@@ -70,9 +70,6 @@ rm -rf /var/www/html/phpmyadmin
 mv phpMyAdmin-5.0.4-all-languages /var/www/html/phpmyadmin
 cp config.inc.php /var/www/html/phpmyadmin/
 
-# Cambiamos la IP de la base de datos a la del backend
-sed -i "s/localhost/$IP/" /var/www/html/config.php
-
 # Cambiamos los permisos de la carpeta html
 cd /var/www/html
 chown www-data:www-data * -R
@@ -92,6 +89,9 @@ rm -rfv $DIR_GIT/db
 
 # Movemos los archivos de src a la carpeta html
 mv $DIR_GIT/src/* /var/www/html
+
+# Cambiamos la IP de la base de datos a la del backend
+sed -i 's/localhost/$IP/' /var/www/html/config.php
 
 # Reiniciamos apache2
 systemctl restart apache2
