@@ -91,7 +91,7 @@ rm -rfv $DIR_GIT/db
 mv $DIR_GIT/src/* /var/www/html
 
 # Cambiamos la IP de la base de datos a la del backend
-sed -i 's/localhost/$IP/' /var/www/html/config.php
+sed -i "s/localhost/$IP/" /var/www/html/config.php
 
 # Reiniciamos apache2
 systemctl restart apache2
