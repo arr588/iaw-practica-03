@@ -71,7 +71,7 @@ mv phpMyAdmin-5.0.4-all-languages /var/www/html/phpmyadmin
 cp config.inc.php /var/www/html/phpmyadmin/
 
 # Cambiamos la IP de la base de datos a la del backend
-sed -i "s/localhost/$IP/" /var/www/html/config.php
+sed -i 's/localhost/$IP/' /var/www/html/config.php
 
 # Cambiamos los permisos de la carpeta html
 cd /var/www/html
